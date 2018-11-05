@@ -22,7 +22,6 @@ public class Driver{
     return output + "]";
   }
   public static void main(String[]args){
-
     int[][] a = new int[][]{
       {},
       {1, 2, 3},
@@ -83,14 +82,17 @@ public class Driver{
     System.out.println("Should print [[8], [9, 0, 3, -1, 8], [2, 1, 2], [7, 7, 3, 9]]: \n" + printArray(magicColumn));
     //--------------------------------------------------------------------//
     System.out.println("\n\n--------Phase 1 Testing--------");
-
+    try{
       System.out.println("\n--------Testing int rowSum(int[][] ary, int x)--------");
       System.out.println("Should print 34: " + ArrayMethods.rowSum(c, 0));
       System.out.println("Should print 6: " + ArrayMethods.rowSum(a, 1));
       System.out.println("Should print 4: " + ArrayMethods.rowSum(b, 0));
-
-
-
+      System.out.println("\nIndex too big --> Should print printStackTrace: ");
+      System.out.println(ArrayMethods.rowSum(b,3)); //Error Testing
+    }
+    catch (IndexOutOfBoundsException e){
+      e.printStackTrace();
+    }
     //--------------------------------------------------------------------//
     try{
       System.out.println("\n\n--------Testing int columnSum(int[][] ary, int x)--------");
@@ -105,6 +107,15 @@ public class Driver{
     catch (IndexOutOfBoundsException e){
       e.printStackTrace();
     }
+    //Error Testing
+    
+    try{
+      System.out.println("Empty Array: should print 0: "+ ArrayMethods.columnSum(empty,0));
+    }
+    catch (IndexOutOfBoundsException e){
+      e.printStackTrace();
+    }
+
     //--------------------------------------------------------------------//
     System.out.println("\n\n--------Phase 2 Testing--------");
     try{
